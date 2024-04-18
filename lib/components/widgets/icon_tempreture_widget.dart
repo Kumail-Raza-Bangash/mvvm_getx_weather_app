@@ -7,7 +7,7 @@ class IconAndTempreture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      height: double.maxFinite,
+      height: 300,
       width: double.maxFinite,
       child: Column(
         children: [
