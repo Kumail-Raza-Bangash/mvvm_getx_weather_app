@@ -10,6 +10,22 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: appBar(),
+    );
+  }
+
+  AppBar appBar() {
+    return AppBar(
+      title: const Text(''),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.location_on_outlined,
+          ),
+        ),
+      ],
+    );
   }
 }
