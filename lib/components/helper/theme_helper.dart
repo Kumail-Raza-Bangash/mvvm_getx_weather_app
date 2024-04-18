@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ThemeHelper {
-  static Color primaryColor = const Color(0xFF1C8F00);
+  static Color primaryColor = const Color(0xFF000000);
 
   static final light = ThemeData(
     useMaterial3: false,
