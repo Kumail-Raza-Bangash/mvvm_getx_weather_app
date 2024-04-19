@@ -33,16 +33,11 @@ class _HomeViewState extends State<HomeView> {
           children: [
             SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 20,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                 child: Column(
                   children: [
-                    IconAndTempreture(), 
-                    SizedBox(
-                      height: 20,
-                    ),
+                    IconAndTempreture(),
+                    SizedBox(height: 20),
                     WeatherValueWidget(),
                   ],
                 ),
@@ -61,16 +56,11 @@ class _HomeViewState extends State<HomeView> {
       actions: [
         IconButton(
           onPressed: () {
-          Get.toNamed('/LocationRoute');
+            Get.toNamed('/LocationRoute');
           },
-          icon: const Icon(
-            Icons.location_on_outlined,
-          ),
+          icon: const Icon(Icons.location_on_outlined),
         ),
       ],
     );
   }
-
-
-
 }

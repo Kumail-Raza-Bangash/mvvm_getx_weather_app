@@ -18,7 +18,7 @@ class WeatherImage extends StatelessWidget {
           ),
         );
       },
-      placeholder: (context, url) {
+      errorWidget: (context, url, error) {
         return Container(
           alignment: Alignment.center,
           height: 50,
@@ -29,10 +29,10 @@ class WeatherImage extends StatelessWidget {
           child: Image.asset('assets/images/clouds.png'),
         );
       },
-      errorWidget: (context, url, error){
+      placeholder: (context, url){
         return const Center(
           child: CircularProgressIndicator(
-            strokeWidth: 2,
+            strokeWidth: 3,
             color: Colors.white,
           ),
         );
