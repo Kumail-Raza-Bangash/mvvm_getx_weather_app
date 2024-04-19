@@ -9,6 +9,9 @@ class LocationView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Location"),
       ),
+      body: const Center(
+        child: Text("Location"),
+      ),
     );
   }
 }

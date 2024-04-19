@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mvvm_getx_weather_app/components/widgets/appbar_widget.dart';
 import 'package:mvvm_getx_weather_app/components/widgets/icon_tempreture_widget.dart';
 import 'package:mvvm_getx_weather_app/components/widgets/loader_view.dart';
@@ -16,11 +15,13 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: const AppBarWidget(),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
+              Color(0xFF000000),
+              Color.fromARGB(255, 35, 35, 35),
               Color(0xFF000000),
               Color.fromARGB(255, 35, 35, 35),
               Color(0xFF000000),

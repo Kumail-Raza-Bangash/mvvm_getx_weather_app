@@ -2,18 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvvm_getx_weather_app/view/location/location_view.dart';
 
-AppBar appBar() {
+class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
+  const AppBarWidget({super.key});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
     return AppBar(
-      title: const Text(''),
-      actions: [
-        IconButton(
-          onPressed: () {
-            Get.to(() => const LocationView());
-          },
-          icon: const Icon(
-            Icons.location_on_outlined,
+        title: const Text(''),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.to(() => const LocationView());
+            },
+            icon: const Icon(
+              Icons.location_on_outlined,
+            ),
           ),
-        ),
-      ],
+        ],
     );
   }
+}
