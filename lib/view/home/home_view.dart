@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mvvm_getx_weather_app/components/widgets/appbar_widget.dart';
 import 'package:mvvm_getx_weather_app/components/widgets/icon_tempreture_widget.dart';
+import 'package:mvvm_getx_weather_app/components/widgets/loader_view.dart';
+import 'package:mvvm_getx_weather_app/components/widgets/weather_value_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -42,11 +44,12 @@ class _HomeViewState extends State<HomeView> {
                     SizedBox(
                       height: 20,
                     ),
+                    WeatherValueWidget(),
                   ],
                 ),
               ),
             ),
-            //LoaderView(),
+            LoaderView(),
           ],
         ),
       ),
