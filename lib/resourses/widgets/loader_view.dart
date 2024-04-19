@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mvvm_getx_weather_app/components/helper/global_variables.dart';
-import 'package:mvvm_getx_weather_app/components/helper/theme_helper.dart';
+import 'package:mvvm_getx_weather_app/resourses/helper/global_variables.dart';
+import 'package:mvvm_getx_weather_app/resourses/helper/theme_helper.dart';
 
 class LoaderView extends StatelessWidget {
   const LoaderView({super.key});

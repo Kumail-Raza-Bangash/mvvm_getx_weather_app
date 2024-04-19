@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_getx_weather_app/components/widgets/weather_image.dart';
+import 'package:mvvm_getx_weather_app/resourses/widgets/weather_image.dart';
 
 class IconAndTempreture extends StatelessWidget {
   const IconAndTempreture({super.key});

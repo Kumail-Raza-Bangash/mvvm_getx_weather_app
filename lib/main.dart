@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:mvvm_getx_weather_app/components/helper/theme_helper.dart';
-import 'package:mvvm_getx_weather_app/view/home/home_view.dart';
+import 'package:mvvm_getx_weather_app/resourses/helper/theme_helper.dart';
+import 'package:mvvm_getx_weather_app/resourses/routes/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter MVVM Getx Weather App',
       debugShowCheckedModeBanner: false,
       theme: ThemeHelper.light,
-      home: const HomeView(),
+      getPages: AppRoutes.appRoute(),
     );
   }
 }

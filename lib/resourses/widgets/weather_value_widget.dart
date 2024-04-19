@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mvvm_getx_weather_app/components/widgets/detail_item_widget.dart';
+import 'package:mvvm_getx_weather_app/resourses/widgets/detail_item_widget.dart';
 
 class WeatherValueWidget extends StatelessWidget {
   const WeatherValueWidget({super.key});
