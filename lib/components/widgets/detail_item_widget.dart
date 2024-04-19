@@ -26,10 +26,10 @@ class _DetailItemsWidgetsState extends State<DetailItemsWidgets> {
     return Expanded(
       child: Container(
         margin: const EdgeInsets.only(top: 10),
-        padding: const EdgeInsets.all(13),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white.withOpacity(0.17),
+          color: Colors.white.withOpacity(0.18),
         ),
         child: Row(
           children: [
@@ -49,7 +49,7 @@ class _DetailItemsWidgetsState extends State<DetailItemsWidgets> {
                       : widget.value,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 13,
+                    fontSize: 12,
                   ),
                 ),
                 const SizedBox(

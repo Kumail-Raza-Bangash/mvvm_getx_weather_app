@@ -23,8 +23,6 @@ class _HomeViewState extends State<HomeView> {
               Color(0xFF000000),
               Color.fromARGB(255, 35, 35, 35),
               Color(0xFF000000),
-              Color.fromARGB(255, 35, 35, 35),
-              Color(0xFF000000),
             ],
             //stops: [0.25, 0.87],
             begin: Alignment.topCenter,
