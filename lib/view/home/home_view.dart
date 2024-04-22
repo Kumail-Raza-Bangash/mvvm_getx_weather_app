@@ -31,17 +31,17 @@ class HomeView extends StatelessWidget {
           children: [
             SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                 child: Column(
                   children: [
                     IconAndTempreture(),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     WeatherValueWidget(),
                   ],
                 ),
               ),
             ),
-            LoaderView(),
+            const LoaderView(),
           ],
         ),
       ),

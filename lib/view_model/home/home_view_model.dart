@@ -73,4 +73,13 @@ class HomeViewModel extends GetxController {
     return date;
   }
 
+  String convertTimeStampToTime(int? timeStamp){
+    String time = 'N/A';
+    if(timeStamp != null){
+      DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(timeStamp * 1000);
+      time = DateFormat("hh:mm a").format(dateTime);
+    }
+    return time;
+  }
+
 }

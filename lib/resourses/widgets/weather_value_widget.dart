@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/detail_item_widget.dart';
+import 'package:mvvm_getx_weather_app/view_model/home/home_view_model.dart';
 
 class WeatherValueWidget extends StatelessWidget {
-  const WeatherValueWidget({super.key});
+  WeatherValueWidget({super.key});
+
+  final HomeViewModel viewModel = Get.put(HomeViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -11,43 +15,114 @@ class WeatherValueWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            DetailItemsWidgets(title: 'Minimum', value: '', icon: CupertinoIcons.down_arrow, unit: ''),
-            const SizedBox(width: 10,),
-            DetailItemsWidgets(title: 'Maximum', value: '', icon: CupertinoIcons.up_arrow, unit: ''),
-        
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Minimum',
+                value: '${viewModel.weatherModel.value.main?.tempMin ?? 'N/A'}',
+                icon: CupertinoIcons.down_arrow,
+                unit: '',
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Maximum',
+                value: '${viewModel.weatherModel.value.main?.tempMax ?? 'N/A'}',
+                icon: CupertinoIcons.up_arrow,
+                unit: '',
+              ), 
+            ),
           ],
         ),
         Row(
           children: [
-            DetailItemsWidgets(title: 'Wind', value: '', icon: Icons.wind_power, unit: ''),
-            const SizedBox(width: 10,),
-            DetailItemsWidgets(title: 'Feel Like', value: '', icon: Icons.cloudy_snowing, unit: ''),
-        
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Wind',
+                value: '${viewModel.weatherModel.value.wind?.speed ?? 'N/A'}',
+                icon: Icons.wind_power,
+                unit: '',
+              ),
+            ), 
+
+            const SizedBox(width: 10),
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Feel Like',
+                value: '${viewModel.weatherModel.value.main?.feelsLike ?? 'N/A'}',
+                icon: Icons.cloudy_snowing,
+                unit: '',
+              ),
+            ), 
           ],
         ),
         Row(
           children: [
-            DetailItemsWidgets(title: 'Pressure', value: '', icon: Icons.thermostat, unit: ''),
-            const SizedBox(width: 10,),
-            DetailItemsWidgets(title: 'Humidity', value: '', icon: Icons.water_drop_outlined, unit: ''),
-        
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Pressure',
+                value: '${viewModel.weatherModel.value.main?.pressure ?? 'N/A'}',
+                icon: Icons.thermostat,
+                unit: '',
+              ),
+            ), 
+
+            const SizedBox(width: 10),
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Humidity',
+                value: '${viewModel.weatherModel.value.main?.humidity ?? 'N/A'}',
+                icon: Icons.water_drop_outlined,
+                unit: '',
+              ),
+            ), 
           ],
         ),
-        const SizedBox(height: 20,),
+        const SizedBox(height: 20),
         Row(
           children: [
-            DetailItemsWidgets(title: 'Sun Rise', value: '', icon: Icons.sunny, unit: ''),
-            const SizedBox(width: 10,),
-            DetailItemsWidgets(title: 'Sun Set', value: '', icon: Icons.sunny_snowing, unit: ''),
-        
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Sun Rise',
+                value: viewModel.convertTimeStampToTime(viewModel.weatherModel.value.sys?.sunrise),
+                icon: Icons.sunny,
+                unit: '',
+              ),
+            ), 
+
+            const SizedBox(width: 10),
+
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Sun Set',
+                value: viewModel.convertTimeStampToTime(viewModel.weatherModel.value.sys?.sunset),
+                icon: Icons.sunny_snowing,
+                unit: '',
+              ),
+            ), 
           ],
         ),
         Row(
           children: [
-            DetailItemsWidgets(title: 'Latitude', value: '', icon: Icons.location_on, unit: ''),
-            const SizedBox(width: 10,),
-            DetailItemsWidgets(title: 'Longitude', value: '', icon: Icons.location_on, unit: ''),
-        
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Latitude',
+                value: '${viewModel.weatherModel.value.coord?.lat ?? 'N/A'}',
+                icon: Icons.location_on,
+                unit: '',
+              ),
+            ),
+            const SizedBox(width: 10),
+            Obx(
+              () => DetailItemsWidgets(
+                title: 'Longitude',
+                value: '${viewModel.weatherModel.value.coord?.lon ?? 'N/A'}',
+                icon: Icons.location_on,
+                unit: '',
+              ),
+            )
           ],
         ),
       ],
