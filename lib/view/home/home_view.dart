@@ -54,7 +54,7 @@ class HomeView extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () {
-            Get.toNamed('/LocationRoute');
+            viewModel.changeLocation();
           },
           icon: const Icon(Icons.location_on_outlined),
         ),

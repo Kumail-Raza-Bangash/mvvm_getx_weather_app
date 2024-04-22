@@ -49,7 +49,8 @@ class _DetailItemsWidgetsState extends State<DetailItemsWidgets> {
                       : widget.value,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(

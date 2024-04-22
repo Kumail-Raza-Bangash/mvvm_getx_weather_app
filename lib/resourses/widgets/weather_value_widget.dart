@@ -43,7 +43,7 @@ class WeatherValueWidget extends StatelessWidget {
                 title: 'Wind',
                 value: '${viewModel.weatherModel.value.wind?.speed ?? 'N/A'}',
                 icon: Icons.wind_power,
-                unit: '',
+                unit: 'm/s',
               ),
             ), 
 

@@ -29,19 +29,18 @@ class WeatherModel {
       this.cod});
 
   WeatherModel.fromJson(Map<String, dynamic> json) {
-    coord = json['coord'] != null ?  Coord.fromJson(json['coord']) : null;
+    coord = json['coord'] != null ? Coord.fromJson(json['coord']) : null;
     if (json['weather'] != null) {
       weather = <Weather>[];
       json['weather'].forEach((v) {
-        weather!.add( Weather.fromJson(v));
+        weather!.add(Weather.fromJson(v));
       });
     }
     base = json['base'];
     main = json['main'] != null ? Main.fromJson(json['main']) : null;
     visibility = json['visibility'];
     wind = json['wind'] != null ? Wind.fromJson(json['wind']) : null;
-    clouds =
-        json['clouds'] != null ? Clouds.fromJson(json['clouds']) : null;
+    clouds = json['clouds'] != null ? Clouds.fromJson(json['clouds']) : null;
     dt = json['dt'];
     sys = json['sys'] != null ? Sys.fromJson(json['sys']) : null;
     timezone = json['timezone'];
@@ -163,20 +162,23 @@ class Main {
 }
 
 class Wind {
-  double? speed;
-  int? deg;
+  num? speed;
+  num? deg;
+  num? gust;
 
-  Wind({this.speed, this.deg});
+  Wind({this.speed, this.deg, this.gust});
 
   Wind.fromJson(Map<String, dynamic> json) {
     speed = json['speed'];
     deg = json['deg'];
+    gust = json['gust'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['speed'] = this.speed;
     data['deg'] = this.deg;
+    data['gust'] = this.gust;
     return data;
   }
 }

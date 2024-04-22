@@ -14,7 +14,7 @@ class AppRoutes {
 
         GetPage(
           name: RoutesName.locationRoute,
-          page: () => const LocationView(),
+          page: () => LocationView(),
           transition: Transition.fadeIn,
           transitionDuration: const Duration(milliseconds: 250),
         ),

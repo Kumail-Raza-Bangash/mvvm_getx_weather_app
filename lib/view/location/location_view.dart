@@ -1,14 +1,17 @@
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/custom_textfields.dart';
+import 'package:mvvm_getx_weather_app/view_model/location/location_view_model.dart';
 
-class LocationView extends StatefulWidget {
-  const LocationView({super.key});
+class LocationView extends StatelessWidget {
+  LocationView({super.key});
 
-  @override
-  State<LocationView> createState() => _LocationViewState();
-}
+  final LocationViewModel viewModel = Get.put(LocationViewModel());
 
-class _LocationViewState extends State<LocationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,19 +26,28 @@ class _LocationViewState extends State<LocationView> {
             CustomTextField(
               hint: 'Search Location...',
               prefixIcon: Icons.location_on,
-              onChanged: (value) {},
+              onChanged: (value) {
+                viewModel.onSearchLocation(value);
+              },
             ),
             Expanded(
-                child: ListView.separated(
-              padding: const EdgeInsets.only(top: 20),
-              itemBuilder: (context, index) {
-                return ListViewItem(index);
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(height: 5);
-              },
-              itemCount: 5,
-            ))
+              child: Obx(
+                () => viewModel.filteredLocationList.isNotEmpty
+                    ? ListView.separated(
+                        padding: const EdgeInsets.only(top: 20),
+                        itemBuilder: (context, index) {
+                          return ListViewItem(index);
+                        },
+                        separatorBuilder: (context, index) {
+                          return const SizedBox(height: 5);
+                        },
+                        itemCount: viewModel.filteredLocationList.length,
+                      )
+                    : const Center(
+                        child: Text("No Location Found!"),
+                      ),
+              ),
+            ),
           ],
         ),
       ),
@@ -48,9 +60,16 @@ class _LocationViewState extends State<LocationView> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      onTap: (){},
+      onTap: () {
+        viewModel.onLocationSelection(index);
+      },
       leading: const Icon(Icons.location_on, color: Colors.white, size: 22),
-      title: const Text("City", style: TextStyle(color: Colors.white),),
+      title: Text(
+        viewModel.filteredLocationList[index],
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
