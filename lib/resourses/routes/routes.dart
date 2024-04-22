@@ -7,7 +7,7 @@ class AppRoutes {
   static appRoute() => [
         GetPage(
           name: RoutesName.initialRoute,
-          page: () => const HomeView(), //HomeView LocationView
+          page: () => HomeView(), //HomeView LocationView
           transition: Transition.fadeIn,
           transitionDuration: const Duration(milliseconds: 250),
         ),

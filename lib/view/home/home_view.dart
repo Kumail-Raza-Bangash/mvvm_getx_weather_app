@@ -3,15 +3,13 @@ import 'package:get/get.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/icon_tempreture_widget.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/loader_view.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/weather_value_widget.dart';
+import 'package:mvvm_getx_weather_app/view_model/home/home_view_model.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class HomeView extends StatelessWidget {
+  HomeView({super.key});
 
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
+  final HomeViewModel viewModel = Get.put(HomeViewModel());
 
-class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
 
   AppBar appBar() {
     return AppBar(
-      title: const Text(''),
+      title: Obx(() => Text(viewModel.location.value)),
       actions: [
         IconButton(
           onPressed: () {
