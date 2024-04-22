@@ -6,13 +6,13 @@ class IconAndTempreture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       height: 300,
       width: double.maxFinite,
       child: Column(
         children: [
           WeatherImage(), //this is custom widget
-          Text(
+          const Text(
             "Current Data",
             style: TextStyle(
               fontSize: 20,

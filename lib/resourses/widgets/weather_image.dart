@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:get/get.dart';
+import 'package:mvvm_getx_weather_app/view_model/home/home_view_model.dart';
 
 class WeatherImage extends StatelessWidget {
-  const WeatherImage({super.key});
+  WeatherImage({super.key});
+
+  final HomeViewModel viewModel = Get.put(HomeViewModel());
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: '',
+      imageUrl: 'https://openweathermap.org/img/wn/${viewModel.weatherModel.value.weather?.first.icon}@4x.png',
       height: 120,
       width: 120,
       imageBuilder: (context, imageProvider) {
