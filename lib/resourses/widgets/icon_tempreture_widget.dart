@@ -18,23 +18,26 @@ class IconAndTempreture extends StatelessWidget {
           WeatherImage(), //this is custom widget
           Text(
             viewModel.getCurrentDate(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
             ),
           ),
           Wrap(
             children: [
-              Text(
-                '17',
-                style: TextStyle(
-                  fontSize: 45,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w900,
+              Obx(
+                () => Text(
+                  (viewModel.weatherModel.value.main?.temp ?? 00)
+                      .toStringAsFixed(0),
+                  style: const TextStyle(
+                    fontSize: 45,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
-              Text(
+              const Text(
                 ' o ',
                 style: TextStyle(
                   fontSize: 20,
@@ -43,18 +46,18 @@ class IconAndTempreture extends StatelessWidget {
                 ),
               ),
             ],
-      
-            
           ),
-      
-          Text(
-                'Conditions',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
+
+          Obx(
+            () => Text(
+              viewModel.weatherModel.value.weather?.first.main ?? 'N/A',
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
               ),
+            ),
+          ),
         ],
       ),
     );
