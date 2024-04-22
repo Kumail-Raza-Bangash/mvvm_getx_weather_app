@@ -27,7 +27,7 @@ class HomeView extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: const Stack(
+        child: Stack(
           children: [
             SingleChildScrollView(
               child: Padding(

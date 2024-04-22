@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:intl/intl.dart';
 import 'package:mvvm_getx_weather_app/model/weather_model.dart';
 import 'package:mvvm_getx_weather_app/resourses/helper/getx_helper.dart';
 import 'package:mvvm_getx_weather_app/resourses/helper/global_variables.dart';
@@ -63,6 +64,13 @@ class HomeViewModel extends GetxController {
     catch (e){
       GetxHelper.showSnackbar(message: e.toString());
     }
+  }
+
+  String getCurrentDate(){
+    String date = '';
+    DateTime dateTime = DateTime.now();
+    date = DateFormat("EEEE | MMM dd").format(dateTime);
+    return date;
   }
 
 }
