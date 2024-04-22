@@ -12,7 +12,20 @@ class HomeViewModel extends GetxController {
   RxString location = "Islamabad, Pakistan".obs;
 
   void onReady(){
+    getLastLocationAndUpdate();
     super.onReady();
+  }
+
+  getLastLocationAndUpdate() {
+    //Get Last Selected Location 
+    location.value = GetStorage().read('lastLocation') ?? 'Islamabad, Pakistan';
+
+    //Get Local Data
+    var data = GetStorage().read(location.value) ?? <String, dynamic> {};
+    weatherModel.value = WeatherModel.fromJson(data);
+
+    //Get Lastest Data
+    getWeatherUpdate();
   }
 
   getWeatherUpdate () async {
@@ -48,7 +61,7 @@ class HomeViewModel extends GetxController {
 
     }
     catch (e){
-
+      GetxHelper.showSnackbar(message: e.toString());
     }
   }
 
