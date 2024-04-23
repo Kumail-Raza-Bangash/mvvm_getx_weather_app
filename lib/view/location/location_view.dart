@@ -17,39 +17,37 @@ class LocationView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Location"),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(Dimensions.height10),
-          child: Column(
-            children: [
-              SizedBox(height: Dimensions.height10/2),
-              CustomTextField(
-                hint: 'Search Location...',
-                prefixIcon: Icons.location_on,
-                onChanged: (value) {
-                  viewModel.onSearchLocation(value);
-                },
+      body: Padding(
+        padding: EdgeInsets.all(Dimensions.height10),
+        child: Column(
+          children: [
+            SizedBox(height: Dimensions.height10/2),
+            CustomTextField(
+              hint: 'Search Location...',
+              prefixIcon: Icons.location_on,
+              onChanged: (value) {
+                viewModel.onSearchLocation(value);
+              },
+            ),
+            Expanded(
+              child: Obx(
+                () => viewModel.filteredLocationList.isNotEmpty
+                    ? ListView.separated(
+                        padding: EdgeInsets.only(top: Dimensions.height20),
+                        itemBuilder: (context, index) {
+                          return ListViewItem(index);
+                        },
+                        separatorBuilder: (context, index) {
+                          return SizedBox(height: Dimensions.height10/2);
+                        },
+                        itemCount: viewModel.filteredLocationList.length,
+                      )
+                    : const Center(
+                        child: Text("No Location Found!"),
+                      ),
               ),
-              Expanded(
-                child: Obx(
-                  () => viewModel.filteredLocationList.isNotEmpty
-                      ? ListView.separated(
-                          padding: EdgeInsets.only(top: Dimensions.height20),
-                          itemBuilder: (context, index) {
-                            return ListViewItem(index);
-                          },
-                          separatorBuilder: (context, index) {
-                            return SizedBox(height: Dimensions.height10/2);
-                          },
-                          itemCount: viewModel.filteredLocationList.length,
-                        )
-                      : const Center(
-                          child: Text("No Location Found!"),
-                        ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
