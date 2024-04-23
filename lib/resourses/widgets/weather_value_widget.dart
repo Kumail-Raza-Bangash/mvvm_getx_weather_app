@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mvvm_getx_weather_app/resourses/utils/dimensions.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/detail_item_widget.dart';
 import 'package:mvvm_getx_weather_app/view_model/home/home_view_model.dart';
 
@@ -23,8 +24,8 @@ class WeatherValueWidget extends StatelessWidget {
                 unit: '',
               ),
             ),
-            const SizedBox(
-              width: 10,
+            SizedBox(
+              width: Dimensions.width10,
             ),
             Obx(
               () => DetailItemsWidgets(
@@ -32,7 +33,7 @@ class WeatherValueWidget extends StatelessWidget {
                 value: '${viewModel.weatherModel.value.main?.tempMax ?? 'N/A'}',
                 icon: CupertinoIcons.up_arrow,
                 unit: '',
-              ), 
+              ),
             ),
           ],
         ),
@@ -45,17 +46,17 @@ class WeatherValueWidget extends StatelessWidget {
                 icon: Icons.wind_power,
                 unit: 'm/s',
               ),
-            ), 
-
-            const SizedBox(width: 10),
+            ),
+            SizedBox(width: Dimensions.width10),
             Obx(
               () => DetailItemsWidgets(
                 title: 'Feel Like',
-                value: '${viewModel.weatherModel.value.main?.feelsLike ?? 'N/A'}',
+                value:
+                    '${viewModel.weatherModel.value.main?.feelsLike ?? 'N/A'}',
                 icon: Icons.cloudy_snowing,
                 unit: '',
               ),
-            ), 
+            ),
           ],
         ),
         Row(
@@ -63,45 +64,46 @@ class WeatherValueWidget extends StatelessWidget {
             Obx(
               () => DetailItemsWidgets(
                 title: 'Pressure',
-                value: '${viewModel.weatherModel.value.main?.pressure ?? 'N/A'}',
+                value:
+                    '${viewModel.weatherModel.value.main?.pressure ?? 'N/A'}',
                 icon: Icons.thermostat,
                 unit: '',
               ),
-            ), 
-
-            const SizedBox(width: 10),
+            ),
+            SizedBox(width: Dimensions.width10),
             Obx(
               () => DetailItemsWidgets(
                 title: 'Humidity',
-                value: '${viewModel.weatherModel.value.main?.humidity ?? 'N/A'}',
+                value:
+                    '${viewModel.weatherModel.value.main?.humidity ?? 'N/A'}',
                 icon: Icons.water_drop_outlined,
                 unit: '',
               ),
-            ), 
+            ),
           ],
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: Dimensions.height20),
         Row(
           children: [
             Obx(
               () => DetailItemsWidgets(
                 title: 'Sun Rise',
-                value: viewModel.convertTimeStampToTime(viewModel.weatherModel.value.sys?.sunrise),
+                value: viewModel.convertTimeStampToTime(
+                    viewModel.weatherModel.value.sys?.sunrise),
                 icon: Icons.sunny,
                 unit: '',
               ),
-            ), 
-
-            const SizedBox(width: 10),
-
+            ),
+            SizedBox(width: Dimensions.width10),
             Obx(
               () => DetailItemsWidgets(
                 title: 'Sun Set',
-                value: viewModel.convertTimeStampToTime(viewModel.weatherModel.value.sys?.sunset),
+                value: viewModel.convertTimeStampToTime(
+                    viewModel.weatherModel.value.sys?.sunset),
                 icon: Icons.sunny_snowing,
                 unit: '',
               ),
-            ), 
+            ),
           ],
         ),
         Row(
@@ -114,7 +116,7 @@ class WeatherValueWidget extends StatelessWidget {
                 unit: '',
               ),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: Dimensions.width10),
             Obx(
               () => DetailItemsWidgets(
                 title: 'Longitude',

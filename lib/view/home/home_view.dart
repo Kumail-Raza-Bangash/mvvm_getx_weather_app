@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mvvm_getx_weather_app/resourses/utils/dimensions.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/icon_tempreture_widget.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/loader_view.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/weather_value_widget.dart';
@@ -31,11 +32,13 @@ class HomeView extends StatelessWidget {
           children: [
             SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Dimensions.width15,
+                    vertical: Dimensions.height20),
                 child: Column(
                   children: [
                     IconAndTempreture(),
-                    const SizedBox(height: 20),
+                    SizedBox(height: Dimensions.height20),
                     WeatherValueWidget(),
                   ],
                 ),

@@ -1,9 +1,8 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:mvvm_getx_weather_app/resourses/utils/dimensions.dart';
 import 'package:mvvm_getx_weather_app/resourses/widgets/custom_textfields.dart';
 import 'package:mvvm_getx_weather_app/view_model/location/location_view_model.dart';
 
@@ -19,10 +18,10 @@ class LocationView extends StatelessWidget {
         title: const Text("Location"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(Dimensions.height10),
         child: Column(
           children: [
-            const SizedBox(height: 5),
+            SizedBox(height: Dimensions.height10/2),
             CustomTextField(
               hint: 'Search Location...',
               prefixIcon: Icons.location_on,
@@ -34,12 +33,12 @@ class LocationView extends StatelessWidget {
               child: Obx(
                 () => viewModel.filteredLocationList.isNotEmpty
                     ? ListView.separated(
-                        padding: const EdgeInsets.only(top: 20),
+                        padding: EdgeInsets.only(top: Dimensions.height20),
                         itemBuilder: (context, index) {
                           return ListViewItem(index);
                         },
                         separatorBuilder: (context, index) {
-                          return const SizedBox(height: 5);
+                          return SizedBox(height: Dimensions.height10/2);
                         },
                         itemCount: viewModel.filteredLocationList.length,
                       )
@@ -58,12 +57,12 @@ class LocationView extends StatelessWidget {
     return ListTile(
       tileColor: Colors.white.withOpacity(0.2),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(Dimensions.radius15/2),
       ),
       onTap: () {
         viewModel.onLocationSelection(index);
       },
-      leading: const Icon(Icons.location_on, color: Colors.white, size: 22),
+      leading: Icon(Icons.location_on, color: Colors.white, size: Dimensions.height20),
       title: Text(
         viewModel.filteredLocationList[index],
         style: const TextStyle(

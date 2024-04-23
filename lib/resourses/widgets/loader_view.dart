@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvvm_getx_weather_app/resourses/helper/global_variables.dart';
 import 'package:mvvm_getx_weather_app/resourses/helper/theme_helper.dart';
+import 'package:mvvm_getx_weather_app/resourses/utils/dimensions.dart';
 
 class LoaderView extends StatelessWidget {
   const LoaderView({super.key});
@@ -18,13 +19,14 @@ class LoaderView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 60,
-                    height: 60,
+                    width: Dimensions.width30 * 2,
+                    height: Dimensions.height30 * 2,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadiusDirectional.circular(10)),
+                        borderRadius: BorderRadiusDirectional.circular(
+                            Dimensions.radius20 / 2)),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(Dimensions.height10),
                       child: CircularProgressIndicator(
                         strokeWidth: 2,
                         valueColor: AlwaysStoppedAnimation<Color>(
@@ -36,7 +38,7 @@ class LoaderView extends StatelessWidget {
                 ],
               ),
             )
-          : SizedBox(),
+          : const SizedBox(),
     );
   }
 }

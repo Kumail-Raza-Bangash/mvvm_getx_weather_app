@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 import 'package:mvvm_getx_weather_app/resourses/image_assets.dart';
+import 'package:mvvm_getx_weather_app/resourses/utils/dimensions.dart';
 import 'package:mvvm_getx_weather_app/view_model/home/home_view_model.dart';
 
 class WeatherImage extends StatelessWidget {
@@ -16,10 +17,10 @@ class WeatherImage extends StatelessWidget {
     if (iconUrl == null) {
       // Handle the case where iconUrl is null (e.g., show a default image)
       return Container(
-        height: 120,
-        width: 120,
+        height: Dimensions.height10*12,
+        width: Dimensions.width10*12,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(Dimensions.radius15),
           image: const DecorationImage(
             image: AssetImage('assets/images/clouds.png'),
             fit: BoxFit.cover,
@@ -30,12 +31,12 @@ class WeatherImage extends StatelessWidget {
 
     return CachedNetworkImage(
       imageUrl: 'https://openweathermap.org/img/wn/$iconUrl@4x.png',
-      height: 120,
-      width: 120,
+      height: Dimensions.height10*12,
+        width: Dimensions.width10*12,
       imageBuilder: (context, imageProvider) {
         return Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(Dimensions.radius15),
             image: DecorationImage(
               image: imageProvider,
               fit: BoxFit.cover,
@@ -45,10 +46,10 @@ class WeatherImage extends StatelessWidget {
       },
       errorWidget: (context, url, error) {
         return Container(
-          height: 120,
-          width: 120,
+          height: Dimensions.height10*12,
+        width: Dimensions.width10*12,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(Dimensions.radius15),
           ),
           child: Image.asset(ImageAssets.clouds), //clouds.png
         );

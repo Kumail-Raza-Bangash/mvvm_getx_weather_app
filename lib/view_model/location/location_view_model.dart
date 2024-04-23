@@ -16,7 +16,6 @@ class LocationViewModel extends GetxController {
     'Gilgit, Pakistan',
     'Kashmor, Pakistan',
     'Jacobabad, Pakistan',
-    'Kashmir, Pakistan',
     'Skardu, Pakistan',
     'Parachinar, Pakistan',
     'Mardan, Pakistan',

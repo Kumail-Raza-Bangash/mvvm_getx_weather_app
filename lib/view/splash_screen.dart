@@ -49,18 +49,18 @@ class _SplashScreenState extends State<SplashScreen>
                 scale: animation,
                 child: Center(
                   child: Image.asset(
-                    height: 150,
+                    height: Dimensions.height15*10,
                     ImageAssets.clouds,
                     width: Dimensions.splashImg,
                   ),
                 ),
               ),
-              const Text(
+              Text(
                 "Weather APP",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 26,
+                  fontSize: Dimensions.font26,
                 ),
               )
             ],

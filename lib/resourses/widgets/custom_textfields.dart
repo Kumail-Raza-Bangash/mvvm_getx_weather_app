@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_getx_weather_app/resourses/utils/dimensions.dart';
 
 class CustomTextField extends StatelessWidget {
   final String? hint;
@@ -24,22 +25,22 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         errorMaxLines: 2,
-        contentPadding: const EdgeInsets.all(10),
+        contentPadding: EdgeInsets.all(Dimensions.height10),
         prefixIcon: Icon(
           prefixIcon,
           color: const Color(0xff3E515B),
-          size: 18,
+          size: Dimensions.height20,
         ),
         fillColor: Colors.white,
         filled: true,
         hintText: hint,
         isDense: true,
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(Dimensions.radius15 / 2),
           borderSide: const BorderSide(width: 0.8, color: Color(0xffE9E9E9)),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(Dimensions.radius15 / 2),
           borderSide: const BorderSide(width: 1, color: Color(0xffE9E9E9)),
         ),
       ),
