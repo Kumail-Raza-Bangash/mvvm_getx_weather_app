@@ -16,11 +16,11 @@ class AppColor{
 
 
    static BoxDecoration buildGradiantBoxDecoration() {
-    return const BoxDecoration(
+    return BoxDecoration(
       gradient: LinearGradient(
         colors: [
-          Colors.white60,
-          Colors.green,
+          Colors.black,
+          Colors.grey.withOpacity(0.3),
         ],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
@@ -30,5 +30,5 @@ class AppColor{
     );
   }
 
-  
+
 }

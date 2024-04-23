@@ -1,7 +1,10 @@
+import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mvvm_getx_weather_app/resourses/colors.dart';
 import 'package:mvvm_getx_weather_app/resourses/image_assets.dart';
+import 'package:mvvm_getx_weather_app/resourses/routes/routes_name.dart';
 import 'package:mvvm_getx_weather_app/resourses/utils/dimensions.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -11,27 +14,26 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin{
-
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
+      
   late Animation<double> animation;
   late AnimationController controller;
 
-    @override
+  @override
   void initState() {
     super.initState();
 
-    controller = AnimationController(
-      vsync: this, 
-      duration: const Duration(seconds: 4))..forward();
-    
-    animation = CurvedAnimation(
-      parent: controller, 
-      curve: Curves.linear);
+    controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 4))
+          ..forward();
 
-      
+    animation = CurvedAnimation(parent: controller, curve: Curves.linear);
 
+    Timer(const Duration(seconds: 5), () {
+      Get.offNamed(RoutesName.homeRoute);
+    });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +42,28 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Center(
-          child: ScaleTransition(
-            scale: animation,
-            child: Center(
-              child: Image.asset(
-                ImageAssets.clouds,
-                width: Dimensions.splashImg,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ScaleTransition(
+                scale: animation,
+                child: Center(
+                  child: Image.asset(
+                    height: 150,
+                    ImageAssets.clouds,
+                    width: Dimensions.splashImg,
+                  ),
+                ),
               ),
-            ),
+              const Text(
+                "Weather APP",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                ),
+              )
+            ],
           ),
         ),
       ),
