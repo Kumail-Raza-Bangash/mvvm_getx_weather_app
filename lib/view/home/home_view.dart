@@ -15,39 +15,37 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF000000),
-                Color.fromARGB(255, 35, 35, 35),
-                Color(0xFF000000),
-              ],
-              //stops: [0.25, 0.87],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF000000),
+              Color.fromARGB(255, 35, 35, 35),
+              Color(0xFF000000),
+            ],
+            //stops: [0.25, 0.87],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-          child: Stack(
-            children: [
-              SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Dimensions.width15,
-                      vertical: Dimensions.height20),
-                  child: Column(
-                    children: [
-                      IconAndTempreture(),
-                      SizedBox(height: Dimensions.height20),
-                      WeatherValueWidget(),
-                    ],
-                  ),
+        ),
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: Dimensions.width15,
+                    vertical: Dimensions.height20),
+                child: Column(
+                  children: [
+                    IconAndTempreture(),
+                    SizedBox(height: Dimensions.height20),
+                    WeatherValueWidget(),
+                  ],
                 ),
               ),
-              const LoaderView(),
-            ],
-          ),
+            ),
+            const LoaderView(),
+          ],
         ),
       ),
     );
